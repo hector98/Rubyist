@@ -19,6 +19,6 @@ RSpec.describe TemperatureConverter do
       conv = TemperatureConverter.new
       resul = conv.first_simple_program(0)
       expect(resul).to eq(32)
-  end
+    end
   end
 end
