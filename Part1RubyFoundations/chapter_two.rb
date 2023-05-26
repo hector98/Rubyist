@@ -164,7 +164,73 @@ def mixed_args(a, b, *c, d)
 end
 mixed_args(1,2,3,4,5)
 
+# Exercise
+def ticket.print_details(*x)
+  x.each { |detail| puts "This ticket is #{detail}" }
+end
 
+# Local variables and variable assignment
+# exaples:
+# x
+# _x
+# name
+# first_name
+# plan9
+# user_ID
+# _
 
+def say_goodbye
+  x = "Goodbye"
+  puts x
+end
 
+def start_here
+  x = "Hello"
+  puts x
+  say_goodbye
+  puts "Let's check whether x remained the same:"
+  puts x
+end
 
+start_here
+
+# Variables, objects, and references
+str = "Hello"
+abc = str
+puts abc
+str.replace("Goodbye")
+
+def say_goodbye
+  str = "Hello"
+  abc = str
+  str.replace("Goodbye")
+  puts str
+  puts abc
+end
+
+say_goodbye
+
+# References in variable assignment and reassignment
+str = "Hello"
+abc = str
+str = "Goodbye"
+puts str
+puts abc
+
+# References and method arguments
+def change_string(str)
+  str.replace("New string content!")
+end
+
+s = "Original string content!"
+change_string(s)
+puts s
+
+# Duping and Freezing Objects
+s = "Original string content!"
+change_string(s.dup)
+puts s # Prints "Original string content!"
+
+s = "Original string content!"
+s.freeze
+#change_string(s) FrozenError (can't modify frozen string)
