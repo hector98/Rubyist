@@ -164,7 +164,7 @@ end
 
 # Exercises
 # 1
-class Ticket 
+class Ticket_e1
   def initialize(venue, price)
     @venue = venue
     @price = price
@@ -173,14 +173,12 @@ class Ticket
   def venue
     @venue
   end
-  puts "hola"
   def discount=(disc)
     @discount = @price - (@price * (disc/100))
-    puts "Descuento"
   end
 end
-tk = Ticket.new("Town Hall", 100)
-puts "The ticket for #{tk.venue} has been discounted 15% to #{tk.discount(15)}"
+tk = Ticket_e1.new("Town Hall", 100)
+puts "The ticket for #{tk.venue} has been discounted 15% to #{tk.discount = 15}"
 
 # Automating the creation of attributes
 # Listing 3.2 Ticket class, with the attribute
@@ -219,3 +217,30 @@ class Ticket
     @date = date
   end
 end
+
+# Inhertance and the Ruby class hierarchy
+class Publication
+  attr_accessor :publisher
+end
+
+class Magazine < Publication
+  attr_accessor :editor
+end
+
+mag = Magazine.new
+mag.publisher = "Hector M. Barrios"
+mag.editor = "Joe Leo"
+puts " Mag is published by #{mag.publisher} and edited by #{mag.editor}"
+
+class Person
+  def species
+    "Homo Sapiens"
+  end
+end
+
+class Rubyist < Person
+end
+
+hector = Rubyist.new
+puts hector.species
+
