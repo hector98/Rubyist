@@ -244,3 +244,28 @@ end
 hector = Rubyist.new
 puts hector.species
 
+# Object ancestry and the not-so-missing link: the Object class
+
+obj = Object.new
+class C
+end
+class D < C
+end
+puts D.superclass
+puts D.superclass.superclass
+
+# Creating class objects
+class Ticket
+  # Code here
+end
+
+my_class = Class.new
+instance_of_my_class = my_class.new
+
+# Defining instance methods in connection with Class.new
+c = Class.new do
+  def say_hello
+    puts "Hello"
+  end
+end
+
