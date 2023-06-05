@@ -269,3 +269,57 @@ c = Class.new do
   end
 end
 
+# A singleton method by any other name...
+class Ticket 
+  attr_reader :venue, :date
+  attr_accessor :price
+  def initialize(venue, date)
+    @venue = venue
+    @date = date
+  end
+end
+
+def Ticket.most_expensive(*tickets)
+  tickets.max_by(&:price)
+end
+
+# Using the &: shorthand syntax
+#["hector", "manuel"].map(&:capitalize)
+
+th = Ticket.new("Town Hall", "2023-12-05")
+cc= Ticket.new("Convention Center", "2022-09-23")
+fg = Ticket.new("Fairgrounds", "2012-08-08")
+th.price = 12.55
+cc.price = 10.00
+fg.price = 18.89
+
+highest = Ticket.most_expensive(th, cc, fg)
+puts "The highest-priced ticket is the one for #{highest.venue}."
+
+# Converting the converter
+class Temperature
+  def Temperature.c2f(celsius)
+    celsius * 9.0 / 5 + 32
+  end
+  
+  def Temperature.f2c(fahrenheit)
+    (fahrenheit - 32) * 5 / 9.0
+  end
+end
+
+puts Temperature.c2f(100)
+
+# Basic use of constant
+class Ticket
+  VENUES = ["Convention Center", "Fairgrounds", "Town hall"]
+  def initialize(venue, date)
+    if VENUES.include?(venue)
+      @venue = venue
+    else
+      raise ArgumentError, "Unknown venue #{venue}"
+    end
+    @date = date
+  end
+end
+
+puts Ticket::VENUES
