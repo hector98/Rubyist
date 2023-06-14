@@ -109,3 +109,69 @@ when ticket3
 else
   puts "No match."
 end
+
+# Undicondial looping with the loop method
+#loop { puts "Looping forever!" }
+#
+#loop do
+# puts "Looping forever!"
+#end
+
+# Controlling the loop
+n = 1
+loop do
+  puts n
+  n = n + 1
+  break if n > 9
+end
+puts "Done!"
+####
+n = 1
+loop do
+  puts n
+  n = n + 1
+  break  unless n == 10
+end
+puts "Done!"
+
+# The while keyword
+n = 1
+while n < 11
+  puts n
+  n += 1
+end
+puts "Done!"
+
+# begin
+n = 1
+begin
+  puts n
+  n += 1
+end while n < 11
+puts "Done!"
+
+# The until keyword
+n = 1
+until n > 10
+  puts n
+  n += 1
+end
+
+# Multiple assigment in conditional statements
+if (a, b = [4, 8])
+  puts a
+  puts b
+end
+
+# 6.3 Using for/in with the Temperature class
+class Temperature
+  def Temperature.c2f(celsius)
+    celsius * 9.0 / 5 + 32
+  end
+end
+
+celsius = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+puts "Celsius\tFahrenheit"
+for c in celsius
+  puts "#{c}\t#{Temperature.c2f(c)}"
+end
