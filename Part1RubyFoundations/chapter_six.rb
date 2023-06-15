@@ -175,3 +175,64 @@ puts "Celsius\tFahrenheit"
 for c in celsius
   puts "#{c}\t#{Temperature.c2f(c)}"
 end
+
+# The anatomy of a method call
+#string.scan(/[^,]+/)
+#string.scan(/[^,]+/) { |word| puts word }
+
+# Implementing times
+5.times { puts "Writing this 5 times!" }
+
+# Listing 6.4 yield at work in Integer#my_times
+class Integer
+  def my_times
+    c = 0
+    puts "c = 0"
+    puts "until c == #{self}..."
+    
+    until c == self
+      yield c
+      c += 1
+    end
+    self
+  end
+end
+
+ret = 5.my_times { |i| puts "I'm on interation #{i}!" }
+puts ret
+
+# The importance of begin each
+array = [1, 2, 3, 4, 5]
+array.each { |e| puts "The block just got handed #{e}." }
+
+class Array
+  def my_each
+    c = 0
+    until c == size
+      yield self[c]
+      c += 1
+    end
+    self
+  end
+end
+array.my_each { |e| puts "The block just got handed #{e}." }
+
+# From each to map
+names = ["Hector", "Manuel"]
+names.map { |name| name.upcase }
+puts "#{names}\n"
+
+class Array
+  def my_map
+    c = 0
+    acc = []
+    until c == size
+      e = yield self[c]
+      acc << e
+      c += 1
+    end
+    acc
+  end
+end
+names.my_map { |name| name.upcase }
+puts "#{names}\n"
