@@ -236,3 +236,102 @@ class Array
 end
 names.my_map { |name| name.upcase }
 puts "#{names}\n"
+
+# Block parameters and variable scope
+def args_unleashed(a, b=1, *c, d, e)
+  puts "Arguments: "
+  p a, b, c, d, e
+end
+##########
+def block_args_unleashed
+  yield(1,2,3,4,5)
+end
+block_args_unleashed do |a, b=1, *c, d, e|
+  puts "Arguments:"
+  p a, b, c, d, e
+end
+#--------------------------------------#
+def block_scope_demo
+  x = 100
+  1.times do
+    puts x
+  end
+end
+block_scope_demo
+#----------------------------------------#
+def block_scope_demo_2
+  x = 100
+  1.times do
+    x = 200
+  end
+  puts x
+end
+block_scope_demo_2
+#----------------------------------#
+def block_local_parameter
+  x = 100
+  [1,2,3].each do |x|
+    puts "Parameter x is #{x}"
+    x = x + 10
+    puts "Reassigned to x in block; it's now #{x}"
+  end
+  puts "Outer x is still #{x}"
+end
+block_local_parameter
+
+# Listing 6.5 Inspecting variable behavior within a block
+class Temperature
+  def Temperature.c2f(celsius)
+    celsius * 9.0 / 5 + 32
+  end
+
+  def Temperature.now
+    rand(0..100)
+  end
+end
+celsius = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+fahrenheit = Temperature.now
+puts "The temperature is now : #{fahrenheit} degrees Fahrenheit."
+puts "Celsius\tFahrenheit"
+celsius.each do |c|
+  fahrenheit = Temperature.c2f(c)
+  puts "#{c}\t#{fahrenheit}"
+end
+puts fahrenheit
+
+# Debuggin with binding.irb
+def divide_by_user_input
+  print "Enter a number: "
+  n = gets.chomp.to_i
+  
+  begin
+    result = 100 / n
+  rescue ZeroDivisionError
+    puts "Your number didn't work. Was it zero??"
+    exit
+  end
+  puts "100/#{n} is #{result}."
+end
+divide_by_user_input
+
+# Listing 6.6 Roster and Player objects
+class Roster
+  attr_accessor :players
+end
+
+class Player
+  attr_accessor :name, :position
+  def initialize(name, position)
+    @name = name
+    @position = position
+  end
+end
+
+moore = Player.new("Maya Moore", "Forward")
+taurasi = Player.new("Diana Taurasi", "Guard")
+tourney_roster1 = Roster.new
+tourney_roster1.players = [moore, taurasi]
+
+if tourney_roster1.players.first.position == "Forward"
+  puts "Forward: #{tourney_roster1.players.first.name}"
+end
