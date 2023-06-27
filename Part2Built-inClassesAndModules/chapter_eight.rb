@@ -67,4 +67,53 @@ puts string
 string["cool"] = "great"
 puts string
 
+# String combination via interpolation
+str = "Hi "
+puts "#{str}there"
+#-------------------#
+puts "The sum is #{2 + 2}."
+#---------------------------#
+puts "My name is #{class Person
+                        attr_accessor :name
+                   end
+                   h = Person.new
+                   h.name = "Hector"
+                   h.name
+                   }."
+
+#---------------------------------------------#
+
+# Content transformations
+puts "Hector's M. Barrios".chop
+puts "Hector's M. Barrios\n".chomp
+puts "Hector's M. Barrios".chomp('os')
+
+string = "Hector's M. Barrios"
+puts string
+string.clear
+puts string
+
+string = "(to be named later)"
+puts string
+string.replace("Hector's M. Barrios")
+puts string
+
+str = "Hector M. Barrios"
+puts str.delete("abs")
+puts str.delete("^abc")
+puts str.delete("a-e", "^c")
+
+puts "a".succ
+puts "abc".succ
+puts "azz".succ
+
+# String Conversions
+puts "100".to_i(17) # 100 in base 17
+puts "100".oct # 100 in base 8
+puts "100".hex # 100 in base 16
+puts "1.1234".to_f
+puts "Hello".to_str
+puts "-4e-2i".to_c
+puts "4.55".to_r
+puts "abcd".to_sym
 
