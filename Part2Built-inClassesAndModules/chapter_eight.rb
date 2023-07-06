@@ -117,3 +117,29 @@ puts "-4e-2i".to_c
 puts "4.55".to_r
 puts "abcd".to_sym
 
+# Chief Characteristic of symbols
+# Immutability
+# Uniqueness
+puts "xyz".object_id
+puts "xyz".object_id
+puts :xyz.object_id
+puts :xyz.object_id
+
+# Symbols as hash keys
+hector_hash = { :name => "Hector", :age => 25 }
+# o
+hector_hash = { name: "Hector", age: 25 }
+
+# Numerical objects
+n = 99.6
+m = n.round
+puts m
+
+x = 12
+if x.zero?
+  puts "x is zero"
+else
+  puts "x is not zero"
+end
+
+puts "The ASCII character equivalent of 97 is #{97.chr}"
