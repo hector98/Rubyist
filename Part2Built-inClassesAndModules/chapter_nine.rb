@@ -27,3 +27,19 @@ puts "#{%W(Hector is #{2023 - 1998} years old)}"
 puts "#{%i(a b c)}"
 h = "Hector"
 puts "#{%I("#{h}")}"
+
+# Insterting retrieving and removing array elements
+a = []
+a[0] = "first"
+puts "#{a}"
+
+a = [1,2,3,4,5]
+puts "#{a[2]}"
+
+# Setting or getting more than one array element at a time
+a = %w(red orange yellow purple gray indigo violet)
+puts "#{a}"
+puts "#{a[3,2]}"
+a[3,2] = "green", "blue"
+puts "#{a}"
+
