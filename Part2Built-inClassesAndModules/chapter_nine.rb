@@ -43,3 +43,38 @@ puts "#{a[3,2]}"
 a[3,2] = "green", "blue"
 puts "#{a}"
 
+# Hashes
+state_hash = { "Zacatecas" => "Zac.",
+               "Jalisco" => "Jal.",
+               "Gunajuato" => "Gto.",
+               "Sonora" => "Son.",
+               "Yucatan" => "Yuc."
+}
+print "Enter the name of a state: "
+state = gets.chomp
+abbr = state_hash[state]
+puts "The abbreviation is #{abbr}"
+
+
+# Inserting, retreving and removing hash pairs
+# Adding a key/value pair to a hash
+
+state_hash["Colima"] = "Col."
+# o sugared version
+#state_hash. [] = ("Colima", "Col.")
+# use the synonimous method store
+state_hash.store("Durango", "Dgo")
+
+h = Hash.new
+h["a"] = 1
+h["a"] = 2
+puts h["a"]
+
+# Combining hashes with other hashes
+h1 = { first: "Hector",
+       last: "Barrios",
+       suffix: "III"}
+
+h2 = {suffix: "Jr."}
+h1.update(h2)
+puts h1[:suffix]
