@@ -78,3 +78,16 @@ h1 = { first: "Hector",
 h2 = {suffix: "Jr."}
 h1.update(h2)
 puts h1[:suffix]
+
+#------------ Ranges --------------------#
+# Creating a range
+r = Range.new(1,100)
+puts r
+r2 = 1..100
+r3 = 1...100
+
+#------------ Sets ------------------------#
+# Set creation
+a = ["a", "b", "c", "d"]
+set = Set.new(a)
+set2 = Set.new(a) { |l| l.upcase }
